@@ -82,7 +82,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : vincent_xin.disqus.com
+      short_name : vincent_xin
     livefyre :
       site_id : 123
     intensedebate :
