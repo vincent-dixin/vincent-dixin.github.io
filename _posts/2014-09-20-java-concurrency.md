@@ -16,27 +16,7 @@ tags : test
 第一是继承 Thread 类，实现 run 方法，并创建子类对象。
 
 ```java
-	public void startThreadUseSubClass() {
-		class MyThread extends Thread {
-			public void run() {
-				System.out.println("start thread using Subclass of Thread");
-			}
-		}
-
-		MyThread thread = new MyThread();
-		thread.start();
-	}
-```
-
-另一种是传递给 Thread 构造函数一个 Runnable 对象。
-
-```java
-	public void startThreadUseRunnalbe() {
-		Thread thread = new Thread(new Runnable() {
-			public void run() {
-				System.out.println("start thread using runnable");
-			}
-		});
-		thread.start();
+	public void main(String[] args) {
+	
 	}
 ```
