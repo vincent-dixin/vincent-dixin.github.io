@@ -78,7 +78,7 @@ h1, h2, h3, h4 {
   border: 1px solid #4c964d;
   color: #FFF; }
 .highlight pre {
-  background-color: none;
+  background-color: #3A3C42;
   border: 0;
 }
 .highlight .hll { background-color: #49483e }
