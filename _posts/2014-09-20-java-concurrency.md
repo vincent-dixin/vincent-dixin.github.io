@@ -1,7 +1,8 @@
 ---
-layout: default
-title: Java 中的并发
-comments: true
+layout: post
+category : test
+tagline: "test"
+tags : test
 ---
 
 
