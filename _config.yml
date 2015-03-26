@@ -82,7 +82,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : github_dixin
+      short_name : githubdixin
     livefyre :
       site_id : 123
     intensedebate :
