@@ -10,10 +10,10 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 胡迪新
+title : Vincent
 tagline: Site Tagline
 author :
-  name : 胡迪新
+  name : Vincent
   email : cashhu@126.com
   github : vincent-dixin
   twitter : username
