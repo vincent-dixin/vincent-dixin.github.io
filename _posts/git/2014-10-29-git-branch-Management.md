@@ -1,5 +1,6 @@
 ---
 layout: post
+category: git
 title: 【转】Git分支管理策略
 
 ---
