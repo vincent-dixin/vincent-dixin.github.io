@@ -1,5 +1,7 @@
 ---
 layout: post
+title: 【转】Git分支管理策略
+
 ---
 
 如果你严肃对待编程，就必定会使用`"版本管理系统"`（Version Control System）。
