@@ -12,6 +12,17 @@
 /* Replaced with standard BS3 Navbar */
 /*.navbar .nav {
   float: right; }*/
+::selection { 
+  background:#d3d3d3; color:#555; 
+} 
+
+::-moz-selection { 
+  background:#d3d3d3; color:#555; 
+} 
+
+::-webkit-selection { 
+  background:#d3d3d3; color:#555; 
+}
 
 /* Jekyll Bootstrap Colors */
 h1, h2, h3, h4 {
