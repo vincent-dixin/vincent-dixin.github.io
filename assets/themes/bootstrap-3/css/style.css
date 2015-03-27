@@ -80,6 +80,7 @@ h1, h2, h3, h4 {
 .highlight pre {
   background-color: #3A3C42;
   border: 0;
+  color: #f8f8f2;
 }
 .highlight .hll { background-color: #49483e }
 .highlight  { background: #3A3C42; color: #f8f8f2 }
