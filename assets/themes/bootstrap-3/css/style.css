@@ -8,6 +8,95 @@
 .container-narrow > hr {
   margin: 30px 0; }
 */
+/*文章*/
+.article {
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+/*文章-置顶*/
+.article-stick {
+  position: absolute;
+  top: -10px;
+  right: 5%;
+  font-size: 40px;
+  color: #d9534f;
+}
+/*文章－日期*/
+.data-article {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 100px;
+  left: -20px;
+  top: -20px;
+  color: white;
+  padding-top: 10px;
+}
+.data-article span.month,
+.data-article span.day {
+  text-align: center;
+  display: block;
+}
+.data-article span.month {
+  margin: 0;
+}
+.data-article span.day {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: -5px;
+}
+/*文章－标题*/
+.title-article {
+  padding: 20px 15px 0px 15px;
+}
+@media (max-width: 767px) {
+  .title-article {
+    padding: 0px;
+  }
+}
+.title-article h1 {
+  font-size: 32px;
+  margin: 0 auto;
+  text-align: center;
+}
+.title-article h1 a {
+  color: #3d4450;
+}
+.title-article h1 a:hover {
+  color: #d9534f;
+  text-decoration: none;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+/*文章－标签*/
+.label-zan:hover {
+  background-color: #d9534f;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.tag-article {
+  text-align: center;
+  line-height: 24px;
+  margin: 20px;
+}
+/*文章－内容*/
+.centent-article .thumbnail {
+  margin-bottom: 20px;
+}
+.centent-article img {
+  margin: 10px auto;
+  display: block;
+}
+
+
+
 
 /* Replaced with standard BS3 Navbar */
 /*.navbar .nav {
