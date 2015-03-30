@@ -29,29 +29,27 @@ Usage:
     {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
     <div class="article well clearfix">
-      <div class="data-article hidden-xs">
-    		<span class="month">{{this_month}}</span>
-    		<span class="day">{{this_date}}</span>
-    	</div>
-    	<section class="hidden-xs">
-		<div class="title-article">
-			<h1><a href="{{ BASE_PATH }}{{ post.url }}">
-				{{ post.title }}			</a></h1>
+    	<div class="data-article hidden-xs">
+			<span class="month">{{this_month}}</span>
+			<span class="day">{{this_date}}</span>
 		</div>
-		<div class="tag-article">
-			<span class="label label-zan"><i class="fa fa-tags"></i> <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" rel="category tag">{{ post.category }}</a></span>
-			<span class="label label-zan"><i class="fa fa-user"></i> <a href="http://www.hudixin.net/author/admin" title="由胡迪新发布" rel="author">胡迪新</a></span>
-			<span class="label label-zan"><i class="fa fa-eye"></i> </span>
-		</div>
-		<div class="content-article">					
-			<figure class="thumbnail"><a href="http://www.hudixin.net/2014/11/26/305"></a></figure>							
-			<div class="alert alert-zan">
-			  
+	  <section class="hidden-xs">
+			<div class="title-article">
+				<h1><a href="{{ BASE_PATH }}{{ post.url }}">
+					{{ post.title }}			</a></h1>
 			</div>
-		</div>
-		<a class="btn btn-danger pull-right read-more" href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}">阅读全文 </a>
-	</section>
-  	</div>
+			<div class="tag-article">
+				<span class="label label-zan"><i class="fa fa-tags"></i> 
+					<a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" rel="category tag">{{ post.category }}</a>
+				</span>			
+				<span class="label label-zan"><i class="fa fa-user"></i> 
+					<a href="http://www.hudixin.net/author/admin" title="由胡迪新发布" rel="author">胡迪新</a>
+				</span>				
+				span class="label label-zan"><i class="fa fa-eye"></i> 
+				</span>
+			</div>
+		</section>
+  </div>
     
   
     {% if forloop.first %}
