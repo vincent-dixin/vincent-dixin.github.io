@@ -45,8 +45,14 @@ Usage:
 				<span class="label label-zan"><i class="fa fa-user"></i> 
 					<a href="http://www.hudixin.net/author/admin" title="由胡迪新发布" rel="author">胡迪新</a>
 				</span>				
-				span class="label label-zan"><i class="fa fa-eye"></i> 
+				<span class="label label-zan"><i class="fa fa-eye"></i> 
 				</span>
+				<div class="content-article">					
+					<figure class="thumbnail"><a href="http://www.hudixin.net/2014/11/26/305"></a></figure>							
+					<div class="alert alert-zan">			
+						{{ post.excerpt }}
+					</div>
+				</div>
 			</div>
 		</section>
   </div>
