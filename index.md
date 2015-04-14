@@ -5,42 +5,38 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
-
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
-
-## Update Author Attributes
-
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
-
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
-
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
-
-    $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## To-Do
-
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
-
-
+<div id="article-list">
+  {% for post in posts_collate  %}
+  
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture this_date %}{{ post.date | date: "%e" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+    <div class="article well clearfix">
+    	<div class="data-article hidden-xs">
+			<span class="month">{{this_month}}</span>
+			<span class="day">{{this_date}}</span>
+		</div>
+	  <section class="hidden-xs">
+			<div class="title-article">
+				<h1><a href="{{ BASE_PATH }}{{ post.url }}">
+					{{ post.title }}			</a></h1>
+			</div>
+			<div class="tag-article">
+				<span class="label label-zan"><i class="fa fa-tags"></i> 
+					<a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" rel="category tag">{{ post.category }}</a>
+				</span>			
+				<span class="label label-zan"><i class="fa fa-user"></i> 
+					<a href="http://www.hudixin.net/author/admin" title="由胡迪新发布" rel="author">胡迪新</a>
+				</span>				
+				<span class="label label-zan"><i class="fa fa-eye"></i> 
+				</span>
+				<div class="content-article">					
+					<div class="alert alert-zan">			
+						{{ post.excerpt }}
+					</div>
+				</div>
+			</div>
+		</section>
+  </div>
