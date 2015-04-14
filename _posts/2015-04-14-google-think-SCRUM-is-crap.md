@@ -1,5 +1,5 @@
 ---
-title: 
+title: 为何Google这类巨头会认为敏捷开发原则是废话？
 layout: post
 category : lessons
 ---
