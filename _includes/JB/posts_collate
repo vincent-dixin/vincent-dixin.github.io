@@ -48,7 +48,6 @@ Usage:
 				<span class="label label-zan"><i class="fa fa-eye"></i> 
 				</span>
 				<div class="content-article">					
-					<figure class="thumbnail"><a href="http://www.hudixin.net/2014/11/26/305"></a></figure>							
 					<div class="alert alert-zan">			
 						{{ post.excerpt }}
 					</div>
