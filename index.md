@@ -17,8 +17,7 @@ tagline: Supporting tagline
     	<div class="data-article hidden-xs">
 			<span class="month">{{this_month}}</span>
 			<span class="day">{{this_date}}</span>
-		</div>
-	  <section class="hidden-xs">
+		</div><section class="hidden-xs">
 			<div class="title-article">
 				<h1><a href="{{ BASE_PATH }}{{ post.url }}">
 					{{ post.title }}			</a></h1>
