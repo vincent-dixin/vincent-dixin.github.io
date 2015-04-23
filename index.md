@@ -6,7 +6,7 @@ tagline: Supporting tagline
 {% include JB/setup %}
 
 <div id="article-list">
-  {% for post in posts_collate  %}
+  {% for post in site.posts  %}
   
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
     {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
