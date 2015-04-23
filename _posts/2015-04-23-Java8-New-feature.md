@@ -8,7 +8,9 @@ Java 8引入了全新的Stream API。这里的`Stream`和I/O流不同，它更�
 Stream API引入的目的在于弥补Java函数式编程的缺陷。对于很多支持函数式编程的语言，map()、reduce()基本上都内置到语言的标准库中了，不过，Java 8的Stream API总体来讲仍然是非常完善和强大，足以用很少的代码完成许多复杂的功能。
 
 创建一个Stream有很多方法，最简单的方法是把一个Collection变成Stream。我们来看最基本的几个操作：
+
 ```java
+
 public static void main(String[] args) {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     Stream<Integer> stream = numbers.stream();
@@ -18,6 +20,7 @@ public static void main(String[] args) {
         return x * x;
     }).forEach(System.out::println);
 }
+
 ```
 集合类新增的stream()方法用于把一个集合变成Stream，然后，通过filter()、map()等实现Stream的变换。Stream还有一个forEach()来完成每个元素的迭代。
 
