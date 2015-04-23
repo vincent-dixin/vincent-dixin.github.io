@@ -3,11 +3,11 @@ title: Java 8新特性：全新的Stream API
 layout: post
 ---
 
-Java 8引入了全新的Stream API。这里的`Stream`和I/O流不同，它更像具有Iterable的集合类，但行为和集合类又有所不同。
+Java 8引入了全新的Stream API。这里的`Stream`和I/O流不同，它更像具有`Iterable`的集合类，但行为和集合类又有所不同。
 
-Stream API引入的目的在于弥补Java函数式编程的缺陷。对于很多支持函数式编程的语言，map()、reduce()基本上都内置到语言的标准库中了，不过，Java 8的Stream API总体来讲仍然是非常完善和强大，足以用很少的代码完成许多复杂的功能。
+Stream API引入的目的在于弥补Java函数式编程的缺陷。对于很多支持函数式编程的语言，`map()`、`reduce()`基本上都内置到语言的标准库中了，不过，Java 8的Stream API总体来讲仍然是非常完善和强大，足以用很少的代码完成许多复杂的功能。
 
-创建一个Stream有很多方法，最简单的方法是把一个Collection变成Stream。我们来看最基本的几个操作：
+创建一个`Stream`有很多方法，最简单的方法是把一个`Collection`变成`Stream`。我们来看最基本的几个操作：
 
 ```java
 public static void main(String[] args) {
@@ -21,13 +21,13 @@ public static void main(String[] args) {
 }
 ```
 
-集合类新增的stream()方法用于把一个集合变成Stream，然后，通过filter()、map()等实现Stream的变换。Stream还有一个forEach()来完成每个元素的迭代。
+集合类新增的`stream()`方法用于把一个集合变成`Stream`，然后，通过`filter()`、`map()`等实现`Stream`的变换。`Stream`还有一个`forEach()`来完成每个元素的迭代。
 
 为什么不在集合类实现这些操作，而是定义了全新的Stream API？Oracle官方给出了几个重要原因：
 
 一是集合类持有的所有元素都是存储在内存中的，非常巨大的集合类会占用大量的内存，而Stream的元素却是在访问的时候才被计算出来，这种“延迟计算”的特性有点类似Clojure的lazy-seq，占用内存很少。
 
-二是集合类的迭代逻辑是调用者负责，通常是for循环，而Stream的迭代是隐含在对Stream的各种操作中，例如map()。
+二是集合类的迭代逻辑是调用者负责，通常是`for`循环，而Stream的迭代是隐含在对Stream的各种操作中，例如`map()`。
 
 要理解“延迟计算”，不妨创建一个无穷大小的Stream。
 
@@ -48,7 +48,7 @@ class NaturalSupplier implements Supplier<Long> {
 }
 ```
 
-反复调用get()，将得到一个无穷数列，利用这个Supplier，可以创建一个无穷的Stream：
+反复调用`get()`，将得到一个无穷数列，利用这个`Supplier`，可以创建一个无穷的`Stream`：
 
 ```java
 public static void main(String[] args) {
@@ -59,9 +59,9 @@ public static void main(String[] args) {
 }
 ```
 
-对这个Stream做任何map()、filter()等操作都是完全可以的，这说明Stream API对Stream进行转换并生成一个新的Stream并非实时计算，而是做了延迟计算。
+对这个`Stream`做任何`map()`、`filter()`等操作都是完全可以的，这说明Stream API对`Stream`进行转换并生成一个新的`Stream`并非实时计算，而是做了延迟计算。
 
-当然，对这个无穷的Stream不能直接调用forEach()，这样会无限打印下去。但是我们可以利用limit()变换，把这个无穷Stream变换为有限的Stream。
+当然，对这个无穷的`Stream`不能直接调用`forEach()`，这样会无限打印下去。但是我们可以利用`limit()`变换，把这个无穷`Stream`变换为有限的`Stream`。
 
 利用Stream API，可以设计更加简单的数据接口。例如，生成斐波那契数列，完全可以用一个无穷流表示（受限Java的long型大小，可以改为BigInteger）：
 
@@ -90,18 +90,27 @@ public class FibonacciStream {
     }
 }
 ```
-如果想取得数列的前10项，用limit(10)，如果想取得数列的第20~30项，用：
+如果想取得数列的前10项，用`limit(10)`，如果想取得数列的第20~30项，用：
 
+```java
 List<Long> list = fibonacci.skip(20).limit(10).collect(Collectors.toList());
-最后通过collect()方法把Stream变为List。该List存储的所有元素就已经是计算出的确定的元素了。
+```
+
+最后通过`collect()`方法把`Stream`变为`List`。该`List`存储的所有元素就已经是计算出的确定的元素了。
 
 用Stream表示Fibonacci数列，其接口比任何其他接口定义都要来得简单灵活并且高效。
 
 计算π可以利用π的展开式：
 
+
+```
 π/4 = 1 - 1/3 + 1/5 - 1/7 + 1/9 - ...
+```
+
 把π表示为一个无穷Stream如下：
 
+
+```java
 class PiSupplier implements Supplier<Double> {
 
     double sum = 0.0;
@@ -120,6 +129,8 @@ class PiSupplier implements Supplier<Double> {
 Stream<Double> piStream = Stream.generate(new PiSupplier());
 piStream.skip(100).limit(10)
         .forEach(System.out::println);
+```        
+
 这个级数从100项开始可以把π的值精确到3.13~3.15之间：
 
 3.1514934010709914
