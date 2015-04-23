@@ -10,7 +10,6 @@ Stream API引入的目的在于弥补Java函数式编程的缺陷。对于很多
 创建一个Stream有很多方法，最简单的方法是把一个Collection变成Stream。我们来看最基本的几个操作：
 
 ```java
-
 public static void main(String[] args) {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     Stream<Integer> stream = numbers.stream();
@@ -20,8 +19,8 @@ public static void main(String[] args) {
         return x * x;
     }).forEach(System.out::println);
 }
-
 ```
+
 集合类新增的stream()方法用于把一个集合变成Stream，然后，通过filter()、map()等实现Stream的变换。Stream还有一个forEach()来完成每个元素的迭代。
 
 为什么不在集合类实现这些操作，而是定义了全新的Stream API？Oracle官方给出了几个重要原因：
@@ -35,6 +34,7 @@ public static void main(String[] args) {
 如果要表示自然数集合，显然用集合类是不可能实现的，因为自然数有无穷多个。但是Stream可以做到。
 
 自然数集合的规则非常简单，每个元素都是前一个元素的值+1，因此，自然数发生器用代码实现如下：
+
 ```java
 class NaturalSupplier implements Supplier<Long> {
 
@@ -46,6 +46,7 @@ class NaturalSupplier implements Supplier<Long> {
     }
 }
 ```
+
 反复调用get()，将得到一个无穷数列，利用这个Supplier，可以创建一个无穷的Stream：
 
 ```java
@@ -56,6 +57,7 @@ public static void main(String[] args) {
     }).limit(10).forEach(System.out::println);
 }
 ```
+
 对这个Stream做任何map()、filter()等操作都是完全可以的，这说明Stream API对Stream进行转换并生成一个新的Stream并非实时计算，而是做了延迟计算。
 
 当然，对这个无穷的Stream不能直接调用forEach()，这样会无限打印下去。但是我们可以利用limit()变换，把这个无穷Stream变换为有限的Stream。
