@@ -134,6 +134,7 @@ piStream.skip(100).limit(10)
 
 这个级数从100项开始可以把π的值精确到3.13~3.15之间：
 
+```
 3.1514934010709914
 3.1317889675734545
 3.1513011626954057
@@ -144,12 +145,16 @@ piStream.skip(100).limit(10)
 3.132333592767332
 3.1507667724908344
 3.1325019323081857
+```
+
 利用欧拉变换对级数进行加速，可以利用下面的公式：
 
 euler-transform
 
 用代码实现就是把一个流变成另一个流：
 
+
+```java
 class EulerTransform implements Function<Double, Double> {
 
     double n1 = 0.0;
@@ -177,8 +182,12 @@ Stream<Double> piStream2 = Stream.generate(new PiSupplier());
 piStream2.map(new EulerTransform())
          .limit(10)
          .forEach(System.out::println);
+```         
+
 可以在10项之内把π的值计算到3.141~3.142之间：
 
+
+```
 0.0
 0.0
 3.166666666666667
@@ -189,8 +198,11 @@ piStream2.map(new EulerTransform())
 3.1408813408813416
 3.142071817071818
 3.1412548236077655
+```
+
 还可以多次应用这个加速器：
 
+```java
 Stream<Double> piStream3 = Stream.generate(new PiSupplier());
 piStream3.map(new EulerTransform())
          .map(new EulerTransform())
@@ -199,11 +211,16 @@ piStream3.map(new EulerTransform())
          .map(new EulerTransform())
          .limit(20)
          .forEach(System.out::println);
+```
+
 20项之内可以计算出极其精确的值：
 
+```
 ...
 3.14159265359053
 3.1415926535894667
 3.141592653589949
 3.141592653589719
+```
+
 可见用Stream API可以写出多么简洁的代码，用其他的模型也可以写出来，但是代码会非常复杂。
