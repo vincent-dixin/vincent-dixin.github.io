@@ -109,8 +109,8 @@ List<Long> list = fibonacci.skip(20).limit(10).collect(Collectors.toList());
 
 把π表示为一个无穷Stream如下：
 
-
 ```java
+
 class PiSupplier implements Supplier<Double> {
 
     double sum = 0.0;
@@ -129,6 +129,7 @@ class PiSupplier implements Supplier<Double> {
 Stream<Double> piStream = Stream.generate(new PiSupplier());
 piStream.skip(100).limit(10)
         .forEach(System.out::println);
+        
 ```        
 
 这个级数从100项开始可以把π的值精确到3.13~3.15之间：
