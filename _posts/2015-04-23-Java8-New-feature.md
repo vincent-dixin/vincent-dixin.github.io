@@ -35,6 +35,7 @@ public static void main(String[] args) {
 
 自然数集合的规则非常简单，每个元素都是前一个元素的值+1，因此，自然数发生器用代码实现如下：
 
+
 ```java
 class NaturalSupplier implements Supplier<Long> {
 
